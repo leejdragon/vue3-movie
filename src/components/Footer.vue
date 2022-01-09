@@ -2,9 +2,9 @@
   <footer>
     <Logo />
     <a
-      href="https://github.com/ParkYoungWoong"
+      href="https://github.com/leejdragon"
       target="_blank">
-      (c){{ new Date().getFullYear() }} HEROPY
+      (c){{ new Date().getFullYear() }} LeeJeongYong
     </a>
   </footer>
 </template>
@@ -16,7 +16,6 @@ export default {
   components: {
     Logo
   }
-  
 }
 </script>
 

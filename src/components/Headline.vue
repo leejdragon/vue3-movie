@@ -14,6 +14,7 @@
 
 <style lang="scss" scoped>
 @import "~/scss/main";
+
 .container {
   padding-top: 40px;
 }
@@ -22,11 +23,11 @@ h1 {
   font-family: "Oswald", sans-serif;
   font-size: 80px;
   span {
-    color: $primary;
+    color: white;
   }
 }
-p {
+p{
   margin: 30px 0;
-  color: $gray-600;
+  color: white;
 }
 </style>

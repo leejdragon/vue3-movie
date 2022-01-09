@@ -1,11 +1,12 @@
 import { createApp } from 'vue'
 import App from './App'
-import store from './store'  // Same as './store/index.js'
-import router from './routes' // Same as './routes/index.js'
+import router from './routes/index.js' 
+import store from './store/index.js'
 import loadImage from './plugins/loadImage'
 
+
 createApp(App)
-  .use(store)
   .use(router)
+  .use(store)
   .use(loadImage)
   .mount('#app')

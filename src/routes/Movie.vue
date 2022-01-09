@@ -74,9 +74,9 @@
     </div>
   </div>
 </template>
+    
 
 <script>
-import { mapState } from 'vuex'
 import Loader from '~/components/Loader'
 export default {
   components: {
@@ -88,10 +88,12 @@ export default {
     }
   },
   computed: {
-    ...mapState('movie', [
-      'loading',
-      'theMovie'
-    ])
+    theMovie() {
+      return this.$store.state.movie.theMovie
+    },
+    loading() {
+      return this.$store.state.movie.loading
+    }
   },
   created() {
     this.$store.dispatch('movie/searchMovieWithId', {
@@ -100,13 +102,11 @@ export default {
   },
   methods: {
     requestDiffSizeImage(url, size = 700) {
-      // 잘못된 URL(Poster)인 경우.
       if (!url || url === 'N/A') {
         this.imageLoading = false
         return ''
       }
       const src = url.replace('SX300', `SX${size}`)
-      // 정상적인 URL인 경우.
       this.$loadImage(src)
         .then(() => {
           this.imageLoading = false
@@ -116,7 +116,6 @@ export default {
   }
 }
 </script>
-
 
 <style lang="scss" scoped>
 @import "~/scss/main";
@@ -161,7 +160,7 @@ export default {
 }
 .movie-details {
   display: flex;
-  color: $gray-600;
+  color: white;
   .poster {
     width: 500px;
     height: 500px * 3/2;

@@ -1,11 +1,11 @@
 <template>
-  <div 
-    :style="{ 
-      width: `${size}rem`, 
+  <div
+    :style="{
+      width: `${size}rem`,
       height: `${size}rem`,
       zIndex
     }"
-    :class="{
+    :class="{ 
       absolute,
       fixed
     }"

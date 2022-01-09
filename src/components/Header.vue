@@ -2,7 +2,7 @@
   <header>
     <Logo />
     <div class="nav nav-pills">
-      <div
+      <div 
         v-for="nav in navigations"
         :key="nav.name"
         class="nav-item">
@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import Logo from '~/components/Logo'
+
 export default {
   components: {
     Logo
@@ -52,10 +52,12 @@ export default {
     }
   },
   computed: {
-    ...mapState('about', [
-      'image',
-      'name'
-    ])
+    image() {
+      return this.$store.state.about.image
+    },
+    name() {
+      return this.$store.state.about.name
+    }
   },
   methods: {
     isMatch(path) {
@@ -74,9 +76,9 @@ export default {
 
 header {
   height: 70px;
+  padding: 0 40px;
   display: flex;
   align-items: center;
-  padding: 0 40px;
   position: relative;
   .logo {
     margin-right: 40px;
@@ -100,6 +102,7 @@ header {
     }
     img {
       width: 100%;
+      border-radius: 50%;
     }
   }
   @include media-breakpoint-down(sm) {

@@ -12,7 +12,7 @@
         v-model="$data[filter.name]"
         :key="filter.name"
         class="form-select">
-        <option
+        <option 
           v-if="filter.name === 'year'"
           value="">
           All Years
@@ -24,7 +24,7 @@
         </option>
       </select>
     </div>
-    <button
+    <button 
       class="btn btn-primary"
       @click="apply">
       Apply
@@ -53,18 +53,19 @@ export default {
           name: 'year',
           items: (() => {
             const years = []
-            const thisYear = new Date().getFullYear()
-            for (let i = thisYear; i >= 1985; i -= 1) {
+            const thisYear = new Date().getFullYear() 
+            for (let i = thisYear; i >= 1985; i -=1 ) {
               years.push(i)
             }
             return years
-          })()
+          }) ()
         }
       ]
     }
   },
   methods: {
-    apply() {
+    // apply 누르면 영화 검색 
+    async apply() {
       this.$store.dispatch('movie/searchMovies', {
         title: this.title,
         type: this.type,
@@ -101,9 +102,10 @@ export default {
   .btn {
     width: 120px;
     height: 50px;
-    flex-shrink: 0;
     font-weight: 700;
+    flex-shrink: 0;
   }
+
   @include media-breakpoint-down(lg) {
     display: block;
     input {

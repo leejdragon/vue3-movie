@@ -9,12 +9,12 @@
         class="message">
         {{ message }}
       </div>
-      <div
+      <div 
         v-else
         class="movies">
-        <MovieItem
+        <MovieItem 
           v-for="movie in movies"
-          :key="movie.imdbID"
+          :key="movie.imdbID" 
           :movie="movie" />
       </div>
     </div>
@@ -22,20 +22,24 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import Loader from '~/components/Loader'
 import MovieItem from '~/components/MovieItem'
+import Loader from '~/components/Loader'
+
 export default {
   components: {
-    Loader,
-    MovieItem
+    MovieItem,
+    Loader
   },
-  computed: {
-    ...mapState('movie', [
-      'movies',
-      'loading',
-      'message'
-    ])
+  computed:{
+    movies() {
+      return this.$store.state.movie.movies
+    },
+    message() {
+      return this.$store.state.movie.message
+    },
+    loading() {
+      return this.$store.state.movie.loading
+    }
   }
 }
 </script>

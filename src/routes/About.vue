@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import Loader from '~/components/Loader'
+
 export default {
   components: {
     Loader
@@ -29,14 +29,20 @@ export default {
     }
   },
   computed: {
-    ...mapState('about', [
-      'name',
-      'email',
-      'phone',
-      'image'
-    ])
+    image() {
+      return this.$store.state.about.image
+    },
+    name() {
+      return this.$store.state.about.name
+    },
+    email() {
+      return this.$store.state.about.email
+    },
+    phone() {
+      return this.$store.state.about.phone
+    }
   },
-  mounted() {
+  async mounted() {
     this.init()
   },
   methods: {
@@ -65,6 +71,9 @@ export default {
     position: relative;
     img {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
     }
   }
   .name {
